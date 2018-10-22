@@ -1,6 +1,41 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | FRONTEND Domain Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the frontend domain of your application. This value is used in route
+    | configuration.
+    |
+    */
+
+    'frontend_domain' => env('FRONTEND_DOMAIN', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | INTERNAL Domain Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the internal domain of your application. This value is used in route
+    | configuration.
+    |
+    */
+
+    'internal_domain' => env('INTERNAL_DOMAIN', ''),
+
+    /*
+   |--------------------------------------------------------------------------
+   | API Domain Name
+   |--------------------------------------------------------------------------
+   |
+   | This value is the API domain of your application. This value is used in route
+   | configuration.
+   |
+   */
+
+    'api_domain' => env('API_DOMAIN', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -159,6 +195,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class, //For Repository Pattern
+        App\Modules\Internal\app\Providers\AppServiceProvider::class //For Internal
 
     ],
 

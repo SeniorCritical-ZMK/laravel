@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('super_admin')->default(false);
+            $table->string('type')->default('internal');
+            $table->integer('role_id')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
